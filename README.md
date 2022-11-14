@@ -19,8 +19,14 @@ Run with:
 ```shell
 $ docker run -it -v $(pwd):/workspace intro_assembly
 ```
+
+The included `Makefile` has some quality-of-life additions I found lacking after coming from a heavily automated workflow (run these inside the Docker container):
+
+- `make all` will compile and link all `*.s` files
+- `make lint` uses [asmfmt](https://github.com/klauspost/asmfmt) to lint all your assembly files
+- `make clean` removes all object and binary files
 ## Reference
 
-Since I haven't found any good linters/formatters (!), it's good to keep in mind the following for writing good assembly: 
+It's good to keep in mind the following for writing good assembly. The linter will take care of most of this for you. 
 
 ![assembly_layout](docs/code_layout.png)

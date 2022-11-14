@@ -9,7 +9,7 @@ LINKER := ld
 all: $(EXECUTABLES)
 
 $(EXECUTABLES): $(OBJS)
-	$(LD) $< -o $@
+	$(LINKER) $< -o $@
 
 %.o: %.s
 	$(COMPILER) $< -o $@
