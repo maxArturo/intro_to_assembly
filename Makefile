@@ -17,3 +17,7 @@ $(EXECUTABLES): $(OBJS)
 .PHONY: clean
 clean: 
 	rm -rf $(EXECUTABLES) $(OBJS)
+
+.PHONY: lint
+lint: 
+	asmfmt -w $(SRCS)

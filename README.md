@@ -19,4 +19,8 @@ Run with:
 ```shell
 $ docker run -it -v $(pwd):/workspace intro_assembly
 ```
+## Reference
 
+Since I haven't found any good linters/formatters (!), it's good to keep in mind the following for writing good assembly: 
+
+![assembly_layout](docs/code_layout.png)
