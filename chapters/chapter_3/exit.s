@@ -13,14 +13,14 @@
 # %ebx holds the return status
 #
 
-.section .data
+.section .rodata
 .section .text
 .globl   _start
 
 _start:
-	movl $1, %eax
-	movl $0, %ebx
-	int  $0x80
+	movq %60, %rax	
+	movq $3, %rdi
+	syscall
 
 # this is the linux kernel command
 # number (system call) for exiting
