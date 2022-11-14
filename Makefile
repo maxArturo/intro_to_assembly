@@ -2,16 +2,17 @@ SRC_DIRS := ./chapters
 SRCS := $(shell find $(SRC_DIRS) -name '*.s')
 EXECUTABLES := $(patsubst %.s,%,$(SRCS))
 OBJS := $(patsubst %.s,%.o,$(SRCS))
-CC := as
+COMPILER := as
+LINKER := ld
 
 .PHONY: all
 all: $(EXECUTABLES)
-	$(EXECUTABLES)
 
-%: %.o
+$(EXECUTABLES): $(OBJS)
+	$(LD) $< -o $@
 
 %.o: %.s
-	$(CC) $< -o $@
+	$(COMPILER) $< -o $@
 
 .PHONY: clean
 clean: 
