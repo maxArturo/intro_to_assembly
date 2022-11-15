@@ -8,7 +8,7 @@ LINKER := ld
 .PHONY: all
 all: $(EXECUTABLES)
 
-$(EXECUTABLES): $(OBJS)
+$(EXECUTABLES): %: %.o
 	$(LINKER) $< -o $@
 
 %.o: %.s

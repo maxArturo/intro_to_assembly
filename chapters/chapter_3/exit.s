@@ -8,27 +8,16 @@
 # echo $?
 # after running the program
 #
-# VARIABLES:
-# %eax holds the system call number
-# %ebx holds the return status
-#
 
 .section .rodata
-.section .text
 .globl   _start
+.section .text
 
 _start:
-	movq %60, %rax	
-	movq $3, %rdi
-	syscall
+	movq    $60, %rax # system call number for os exit
+	movq    $3, %rdi  # %rdi holds the exit code of the program
+	syscall # this wakes up the kernel to run the system call stored in %rax
 
-# this is the linux kernel command
-# number (system call) for exiting
-# a program
-# this is the status number we will
-# return to the operating system.
 # Change this around and it will
 # return different things to
 # echo $?
-# this wakes up the kernel to run
-# the exit command
