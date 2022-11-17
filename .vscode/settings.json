@@ -1,0 +1,11 @@
+  {
+    "emeraldwalk.runonsave": {
+      "autoClearConsole": true,
+      "commands": [
+        {
+          "match": "\\.s$",
+          "cmd": "asmfmt -w ${file}"
+        }
+      ]
+    }
+  }

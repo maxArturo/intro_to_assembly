@@ -1,0 +1,33 @@
+# finds the tallest person in the data structure
+# defined in `person_data.s`, and exits with their age.
+
+.globl _start
+
+_start:
+	leaq people, %rbx # set register to first record pointer
+	movq num_people, %rcx # set counter register to no of records
+	movq $0, %rdx # set default height for comparison
+	movq $0, %rdi # set default result age
+
+	cmpq $0, %rcx # exit in case the no. of records is 0 with height 0
+	je   exit
+
+loop_start:
+	movq HEIGHT_OFFSET(%rbx), %rax
+	cmpq %rdx, %rax
+
+	jbe  loop_wrap
+	movq %rax, %rdx
+	movq AGE_OFFSET(%rbx), %rdi # update largest height register
+
+loop_wrap:
+	addq  $PERSON_RECORD_SIZE, %rbx
+	loopq loop_start
+
+# we only hit this instruction when the no. of records is > 0 so
+# it is safe to always do it here
+lookup_age:
+
+exit:
+	movq $60, %rax # save exit code and quit
+	syscall

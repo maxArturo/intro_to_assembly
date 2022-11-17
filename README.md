@@ -8,7 +8,9 @@ This is loosely based on chapters and each portion is desgined to go along with 
 
 I added a Dockerfile to run the compiling/linking on an alpine linux assembler since I'm running this on a mac (which doesn't have the same assembler syntax).
 
-Build with:
+There's a `devcontainer` for VS container conveniently setup, which will load an image with all the required prequisites loaded along with syntax highlighting and automatic linting.
+
+Optionally you can build with:
 
 ```shell
 docker build -t intro_assembly . 
