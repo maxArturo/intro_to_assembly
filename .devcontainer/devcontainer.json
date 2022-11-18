@@ -11,6 +11,7 @@
 		"webfreak.debug",
 		"maziac.asm-code-lens",
 		"maziac.hex-hover-converter",
+		"ms-vscode.cpptools-extension-pack",
 		"emeraldwalk.RunOnSave"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
